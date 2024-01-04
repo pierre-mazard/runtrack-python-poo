@@ -6,7 +6,7 @@ Created on Thu Jan  4 14:07:08 2024
 """
 
 class CompteBancaire:
-    def __init__(self, numero_compte: str, nom: str, prenom: str, solde: float, decouvert: bool):
+    def __init__(self, numero_compte: str, nom: str, prenom: str, solde: float, decouvert: bool = False):
         self.__numero_compte = numero_compte
         self.__nom = nom
         self.__prenom = prenom
@@ -30,12 +30,36 @@ class CompteBancaire:
         else:
             print("Le montant à retirer est supérieur au solde disponible et au découvert autorisé.")
 
+    def agios(self, taux: float):
+        if self.__solde < 0:
+            agios = abs(self.__solde) * taux
+            self.__solde -= agios
+            print(f"Des agios de {agios} euros ont été appliqués. Le nouveau solde est de {self.__solde} euros.")
+        else:
+            print("Le solde du compte est positif. Aucun agio n'a été appliqué.")
+
+    def virement(self, reference: str, compte_destinataire, montant: float):
+        if montant > self.__solde:
+            print("Le montant à transférer est supérieur au solde disponible.")
+        else:
+            self.__solde -= montant
+            compte_destinataire.versement(montant)
+            print(f"Le virement de {montant} euros vers le compte {reference} a été effectué avec succès. Le nouveau solde est de {self.__solde} euros.")
 
 
-compte = CompteBancaire("145698741", "Mazard", "Pierre", 1500.66, True)
+compte1 = CompteBancaire("123456789", "Dupont", "Jean", 1000.0)
 
-compte.afficher()
-compte.afficherSolde()
-compte.versement(536.23)
-compte.retrait(240.0)
-compte.retrait(4000.0)
+
+compte2 = CompteBancaire("987654321", "Durand", "Marie", -500.0, True)
+
+
+compte1.afficher()
+compte2.afficher()
+
+compte1.virement("987654321", compte2, 500.0)
+
+
+compte1.afficher()
+compte2.afficher()
+
+
