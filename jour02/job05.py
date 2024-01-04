@@ -42,4 +42,10 @@ class Voiture:
     
     def set_en_marche(self, en_marche):
         self.__en_marche = en_marche
+    
+    def demarrer(self):
+        self.__en_marche = True
+        
+    def arreter(self):
+        self.__en_marche = False
         
