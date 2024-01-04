@@ -12,6 +12,7 @@ class Voiture:
         self.__annee = annee
         self.__kilometrage = kilometrage
         self.__en_marche = en_marche
+        self.__reservoir = 50
     
     def get_marque(self):
         return self.__marque
@@ -44,8 +45,14 @@ class Voiture:
         self.__en_marche = en_marche
     
     def demarrer(self):
-        self.__en_marche = True
+        if self.__verifier_plein() > 5:
+            self.__en_marche = True
+        
         
     def arreter(self):
         self.__en_marche = False
-        
+    
+    
+    def __verifier_plein(self):
+        return self.__reservoir
+
