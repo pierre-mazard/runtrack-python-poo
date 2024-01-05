@@ -15,3 +15,12 @@ class Vehicule:
     def informationVehicule(self):
         print(f"Marque : {self.marque}\n Modèle : {self.modele}\n Année : {self.annee}\n Prix : {self.prix}")
         
+class Voiture(Vehicule):
+    def __init__(self, marque, modele, annee, prix):
+        super().__init__(marque, modele, annee, prix)
+        self.portes = 4 
+        
+    def informationVehicule(self):
+        super().informationVehicule()
+        print(f"Nombre de portes : {self.portes}")
+        
