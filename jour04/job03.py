@@ -42,4 +42,8 @@ class Parallelepipede(Rectangle):
     def set_hauteur(self, hauteur):
         self.__hauteur = hauteur
         
-        
+rectangle01 = Rectangle(13, 21)
+
+print(f"Le périmètre du rectangle est de : {rectangle01.perimetre()} .")
+print(f"La surface du rectangle est de : {rectangle01.surface()} .")
+       
