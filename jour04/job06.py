@@ -24,6 +24,15 @@ class Voiture(Vehicule):
         super().informationVehicule()
         print(f"Nombre de portes : {self.portes}")
         
-voiture01 = Voiture("Opel", "Corsa", "2018", "19530")
+class Moto(Vehicule):
+    def __init__(self, marque, modele, annee, prix):
+        super().__init__(marque, modele, annee, prix)
+        self.roue = 2
+        
+    def informationVehicule(self):
+        super().informationVehicule()
+        print(f"Nombre de roues : {self.roue}")
+        
+moto01 = Moto("Yamaha", "1200 Vmax", "1987", "4500")
 
-voiture01.informationVehicule()
+moto01.informationVehicule()
