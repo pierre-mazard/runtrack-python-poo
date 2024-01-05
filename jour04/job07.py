@@ -23,4 +23,12 @@ class jeu:
     
     def melanger(self):
         random.shuffle(self.paquet)
-        
+    
+    def distribuer(self):
+        main_joueur = []
+        main_croupier = []
+        for i in range(2):
+            main_joueur.append(self.paquet.pop())
+            main_croupier.append(self.paquet.pop())
+        return main_joueur, main_croupier
+    
