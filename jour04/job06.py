@@ -13,7 +13,7 @@ class Vehicule:
         self.prix = prix
         
     def informationVehicule(self):
-        print(f"Marque : {self.marque}\n Modèle : {self.modele}\n Année : {self.annee}\n Prix : {self.prix}")
+        print(f"Marque : {self.marque}\nModèle : {self.modele}\nAnnée : {self.annee}\nPrix : {self.prix}")
         
 class Voiture(Vehicule):
     def __init__(self, marque, modele, annee, prix):
@@ -24,3 +24,6 @@ class Voiture(Vehicule):
         super().informationVehicule()
         print(f"Nombre de portes : {self.portes}")
         
+voiture01 = Voiture("Opel", "Corsa", "2018", "19530")
+
+voiture01.informationVehicule()
