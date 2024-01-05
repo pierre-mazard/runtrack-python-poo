@@ -52,4 +52,13 @@ class jeu:
     def croupier_joue(self, main):
         while self.valeur_main(main) < 17:
             self.prendre_carte(main)
-            
+    
+    def determiner_gagnant(self, main_joueur, main_croupier):
+        if self.valeur_main(main_joueur) > 21:
+            return 'Croupier'
+        elif self.valeur_main(main_croupier) > 21:
+            return 'Joueur'
+        elif self.valeur_main(main_joueur) > self.valeur_main(main_croupier):
+            return 'Joueur'
+        else:
+            return 'Croupier'
