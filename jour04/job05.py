@@ -24,5 +24,8 @@ class Cercle(Forme):
     def aire(self):
         return 3.14 * self.__radius ** 2
     
+rectangle01 = Rectangle(6, 12)
+cercle01 = Cercle(4.5)
 
+print (f"L'aire du rectangle est de : {rectangle01.aire()} . \n L'aire du cercle est de : {cercle01.aire()} .")
         
