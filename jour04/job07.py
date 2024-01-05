@@ -32,3 +32,16 @@ class jeu:
             main_croupier.append(self.paquet.pop())
         return main_joueur, main_croupier
     
+    def valeur_main(self, main):
+        valeur = 0
+        as_present = False
+        for carte in main:
+            if carte.valeur == "As":
+                as_present = True
+            if carte.valeur in ['Valet', 'Dame', 'Roi']:
+                valeur += 10
+            else:
+                valeur += int(carte.valeur)
+        if as_present and valeur <= 11:
+            valeur += 10
+        return valeur
