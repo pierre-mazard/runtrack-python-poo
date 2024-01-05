@@ -45,3 +45,11 @@ class jeu:
         if as_present and valeur <= 11:
             valeur += 10
         return valeur
+    
+    def prendre_carte(self, main):
+        main.append(self.paquet.pop())
+        
+    def croupier_joue(self, main):
+        while self.valeur_main(main) < 17:
+            self.prendre_carte(main)
+            
